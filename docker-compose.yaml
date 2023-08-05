@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  etcd:
+    image: bitnami/etcd:3.4.27
+    environment:
+      - ALLOW_NONE_AUTHENTICATION=yes
+      - ETCD_ADVERTISE_CLIENT_URLS=http://etcd:2379
+    ports:
+      - 12379:2379 # The port is already used by Kubernetes on MacOS.
+      - 12380:2380
